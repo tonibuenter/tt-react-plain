@@ -1,0 +1,465 @@
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+button.ttButton {
+    border: 0;
+    border-radius: 0.25rem;
+    background: #1E88E5;
+    color: white;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    cursor: pointer;
+}
+
+button.ttButton:disabled {
+    background: #b4b7ba;
+    cursor: default;
+}
+
+/*TTMenu*/
+
+.TTMenu .ttTitle {
+    margin: 2em 20% 2em 20%;
+    font-size: 2em;
+    text-align: center;
+}
+
+.TTMenu .ttList {
+    margin: 2em 20% 2em 20%;
+
+}
+
+.TTMenu button.ttMenuItem {
+    border: 0;
+    border-radius: 0.25rem;
+    background: #8c8c8c;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    display: block;
+    margin: 1em;
+    width: 100%;
+}
+
+
+/*TTMenuUi*/
+
+
+.TTMenuUi .ttTitle {
+    margin: 2em 20% 2em 20%;
+    font-size: 2em;
+    text-align: center;
+}
+
+.TTMenuUi .ttMenuItems {
+    margin: 2em 20% 2em 20%;
+
+}
+
+.TTMenuUi .ttMenuItems button.ttMenuItem {
+    border: 0;
+    border-radius: 0.25rem;
+    background: #8c8c8c;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    display: block;
+    margin: 1em;
+    width: 100%;
+}
+
+.ttTitle {
+    font-weight: bold;
+}
+
+.ttName.ttDirty {
+    color: red;
+}
+
+.ttName.ttDirty::after {
+    content: " *";
+}
+
+.ttIcon {
+    display: inline-block;
+    line-height: 2em;
+}
+
+.ttIcon i {
+    color: #1E88E5;
+    display: inline-block;
+}
+
+.ttIcon i:disabled {
+    color: #b4b7ba;
+    cursor: default;
+}
+
+
+.ttIcon.ttSelected i {
+    background: #1E88E5;
+    color: white;
+
+    display: inline-block;
+    text-align: center;
+    padding: 0.2em;
+    border-radius: 0.2em;
+}
+
+.ttPointer {
+    cursor: pointer;
+}
+
+
+/*ttMessage*/
+
+.ttMessage {
+    color: gray;
+    padding: 0.4em;
+    margin: 0.2em;
+    border: solid gray 1px;
+    border-radius: 0.2em;
+}
+
+.ttMessage button {
+
+}
+
+.ttMessage .ttTitle {
+    font-width: bold;
+}
+
+
+.ttMessage.error {
+    color: red;
+    border-color: red;
+    background: #ff000022;
+}
+
+.ttMessage.error button {
+    background: #ff000022;
+}
+
+.ttMessage.info {
+    color: green;
+    border-color: green;
+    background: #00800022;
+}
+
+.ttMessage .ttButtons {
+    text-align: right;
+}
+
+.ttMessage.info button {
+    background: #00800022;
+}
+
+
+.ttPaper {
+    padding: 1em;
+    margin: 1em;
+    border: gray 1px dashed;
+}
+
+.ttFooter {
+    padding: 0.2em;
+    font-size: 90%;
+    color: lightgray;
+    text-align: right;
+}
+
+
+.ttActions {
+    white-space: nowrap;
+}
+
+
+.ttActions > div {
+    margin-right: 0.6em;
+}
+
+
+.ttActions > div:last-child {
+    margin-right: 0;
+}
+
+/*Navigator*/
+
+.Navigator {
+    display: grid;
+    grid-template-rows: 0fr 1fr 0fr;
+}
+
+.Navigator > .ttToolbar {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 0.2em;
+    gap: 0.6em;
+    background: #000000;
+}
+
+.Navigator > .ttToolbar > div {
+    display: inline-block;
+    color: white;
+    line-height: 2em;
+}
+
+
+.Navigator > .ttToolbar .ttIcon {
+    color: white;
+}
+
+.Navigator > .ttToolbar .ttBreadcrumbs > button {
+    color: white;
+    border-bottom: white solid 1px;
+}
+
+.Navigator > .ttToolbar > div {
+    color: white;
+}
+
+
+.Navigator > .ttToolbar > div > * {
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+}
+
+
+.Navigator > .ttToolbar .ttIcon i {
+    color: white !important;
+}
+
+/*ttBreadcrumbs*/
+
+.ttBreadcrumbs {
+    white-space: nowrap;
+}
+
+.ttBreadcrumbs > button {
+    border: 0;
+    background: none;
+    color: #348ddb;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0;
+    margin: 0.25rem;
+    cursor: pointer;
+}
+
+.ttBreadcrumbs > div {
+    display: inline-block;
+    whiteSpace: nowrap
+}
+
+
+.ttBreadcrumbs > button::after {
+    content: "〉";
+    border: none !important;
+}
+
+.ttBreadcrumbs > div {
+    white-space: nowrap;
+    color: #dddddd;
+}
+
+/*InputUI, SelectUi, TextareaUi*/
+
+/*.InputUi, .TextareaUi, .SelectUi {*/
+/*    margin: 0.2em 0;*/
+/*    padding: 0.4em 0;*/
+/*}*/
+
+.InputUi label, .TextareaUi label, .SelectUi label {
+    display: block;
+    color: gray;
+    padding: 0.2em 0;
+    font-size: 80%;
+}
+
+.InputUi.empty label, .TextareaUi.empty label, .SelectUi.empty label {
+    font-size: 100%;
+}
+
+.InputUi input, .TextareaUi textarea, .SelectUi select {
+    display: block;
+    width: 100%;
+    padding: 0.2em;
+    border: none;
+    border-bottom: solid 1px #1E88E5;
+    font-size: 1em !important;
+    outline: none;
+}
+
+.InputUi.disabled input, .TextareaUi.disabled textarea, .SelectUi.disabled select {
+    border: none;
+    border-bottom: gray solid 1px;
+    background: none;
+    color: gray;
+}
+
+.SelectUi.disabled select option {
+    display: none;
+}
+
+.InputUi .ttValidation {
+    font-size: small;
+    text-align: right;
+    font-style: italic;
+}
+
+.InputUi .ttValidation.false {
+    color: red;
+}
+
+.InputUi .ttValidationMessage.true {
+    color: green;
+}
+
+.InputUi .ttValidationMessage.hide {
+    display: none;
+}
+
+.TextareaUi.disabled textarea {
+    resize: vertical;
+}
+
+/*TopListUi*/
+
+.TopListUi > .ttToolbar {
+    display: grid;
+    grid-template-columns: 1fr 8em 0fr;
+    margin-bottom: 1em;
+}
+
+.TopListUi .ttTableCell {
+    display: inline-block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    padding-right: 1em;
+}
+
+.TopListUi .ttTableHead, .TopListUi .ttTableBody {
+    margin: 0.2em;
+    padding: 0.2em;
+}
+
+.TopListUi .ttTableHead {
+    color: gray;
+}
+
+
+/*TopListUi ttTableHead ttFilterRow*/
+.TopListUi .ttTableRow.ttFilter .ttTableCell {
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    padding: 0 1em 0 0;
+}
+
+.TopListUi .ttTableRow.ttFilter .ttTableCell input {
+    outline: none;
+    border: none;
+    border-bottom: dashed 1px #1E88E5;
+    width: 100%;
+}
+
+
+.TopListUi .ttTableBody .ttTableRow {
+    margin: 0 0 0 0;
+    padding: 0.6em 0 0.4em 0;
+    border-bottom: gray solid 1px;
+    border-collapse: collapse;
+    position: relative;
+}
+
+.TopListUi .ttTableBody .ttTableRow.ttPointer {
+    border-bottom: #1E88E5 solid 1px;
+}
+
+.TopListUi .ttTableRow {
+    display: grid;
+}
+
+.TopListUi .ttTableRow:hover .ttRowOverlay {
+    display: block;
+    transition: all 2s ease;
+    height: 2em;
+}
+
+
+.TopListUi .ttTableRow:hover {
+    opacity: 0.8;
+}
+
+.TopListUi .ttRowOverlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    height: 0px;
+}
+
+/*RenderAction, Confirmation*/
+
+.ttAttribute {
+    margin: 0.6em 0 0.4em 0;
+}
+
+.ttConfirmation .ttBackground {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #989898;
+    opacity: 0.8;
+}
+
+.ttConfirmation .ttContent {
+    position: fixed;
+    top: 20%;
+    bottom: 20%;
+    left: 20%;
+    right: 20%;
+    background: white;
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 2em;
+    justify-content: center;
+    align-content: center;
+    border: 1em solid gray;
+}
+
+
+.ttNowrap {
+    white-space: nowrap;
+}
+
+
+.ttLogin {
+    margin: 3em;
+}
