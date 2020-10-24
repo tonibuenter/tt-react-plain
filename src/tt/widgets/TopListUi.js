@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Icon, Message, Progress, RenderAction } from '../uis';
-import { label, randomName, renderWidget, resolveFunction, toFirst, toList } from '../utils';
+import { label, randomName, renderWidget, resolveFunction, toList, forwardValue } from '../utils';
 import { processService } from '../api';
 
 export default function TopListUi(props) {
-  const { ttdef, data, action, value } = props;
+  const { ttdef, action, value } = props;
   console.log('TopListUi render, value:', value);
 
   const renderCounter = useRef();
@@ -21,7 +21,6 @@ export default function TopListUi(props) {
 
   const [filterRow, setFilterRow] = useState({});
   const [showFilters, setShowFilters] = useState(false);
-  const [remoteFilterCounter, setRemoteFilterCounter] = useState(0);
 
   const [actionRunning, setActionRunning] = useState(null);
 
@@ -37,7 +36,7 @@ export default function TopListUi(props) {
   useEffect(() => {
     console.log('TopListUi use-effect');
     processAction(refreshAction);
-  }, [props, remoteFilterCounter]);
+  }, [props]);
 
   // Prepare attributes...
 
@@ -204,7 +203,7 @@ export default function TopListUi(props) {
    * @param value
    * @returns {*}
    */
-  function cellUiType(attDef, value, index) {
+  function cellUiType(attDef, value) {
     attDef = { ...attDef, noLabel: true };
     return renderWidget({
       def: attDef,
@@ -249,6 +248,7 @@ export default function TopListUi(props) {
     const parameters = { ...actionDef.parameters, ...value, ...row };
     const newAction = { ...actionDef, parameters };
     setActionRunning(newAction);
+
     processService(newAction, processResult);
 
     function processResult(data) {
@@ -275,7 +275,8 @@ export default function TopListUi(props) {
       }
 
       if (actionDef.forward) {
-        action('forward', { action: actionDef, value, data });
+        let newValue = forwardValue(actionDef, { value, data });
+        action('forward', { action: actionDef, value: newValue, data });
         return;
       }
 
@@ -284,7 +285,6 @@ export default function TopListUi(props) {
         setCurrentList(list);
         setDirty([]);
         action('footerInfo', `found ${list.length} records`);
-        return;
       }
     }
   }

@@ -3,6 +3,7 @@ import { TTMenu } from './TTMenu';
 import { processService, setServiceUri, setRequestMode } from './api';
 import { label, registerFunction, registerLabel, registerUiType, resolveFunction, ttLabel } from './utils';
 import InputUi from './widgets/InputUi';
+import CheckboxUi from './widgets/CheckboxUi';
 import SelectUi from './widgets/SelectUi';
 import TextareaUi from './widgets/TextareaUi';
 import TopDetailUi from './widgets/TopDetailUi';
@@ -37,6 +38,7 @@ export {
   // widgets
   DebugUi,
   InputUi,
+  CheckboxUi,
   SelectUi,
   TextareaUi,
   TopDetailUi,

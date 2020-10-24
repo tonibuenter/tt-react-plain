@@ -6,7 +6,7 @@ let counter = 0;
 const directTypes = ['password', 'text', 'date', 'month', 'time', 'datetime-local', 'color'];
 
 export default function InputUi({ def, value, cx, action, validate }) {
-  let id = counter++;
+  let id = 'InputUi' + counter++;
 
   let currentValue = value || def.defaultValue || '';
   let emptyClassName = currentValue ? '' : 'empty';
@@ -36,7 +36,7 @@ export default function InputUi({ def, value, cx, action, validate }) {
         type={directTypes.includes(type) ? type : 'text'}
         value={currentValue}
         onChange={(e) => action('value', { [def.name]: e.target.value })}
-        onBlur={(e) => action('blur', { [def.name]: value })}
+        onBlur={() => action('blur', { [def.name]: value })}
         disabled={!editable}
       />
       <div className={validationClassName}>{validationMessage}</div>
@@ -50,6 +50,5 @@ export default function InputUi({ def, value, cx, action, validate }) {
     if (def.inputType === 'number' && isNaN(+currentValue)) {
       return [false, 'Please_provide_a_number'];
     }
-    return;
   }
 }

@@ -42,8 +42,14 @@ export default function SelectUi(props) {
     console.log('currentValue:', currentValue);
     return (
       <div className={['SelectUi', emptyClassName, editableClassName].join(' ')}>
-        <label htmlFor={id}>{label(def)}</label>
-
+        {def.noLabel ? (
+          ''
+        ) : (
+          <label htmlFor={id}>
+            {label(def)}
+            {def.mandatory ? '*' : ''}
+          </label>
+        )}
         {loading ? (
           <Progress message={'loading'} />
         ) : (
@@ -53,10 +59,10 @@ export default function SelectUi(props) {
             onChange={(e) => {
               action('value', { [def.name]: e.target.value });
             }}
-            onBlur={(e) => action('blur', { [def.name]: value })}
+            onBlur={() => action('blur', { [def.name]: value })}
             // disabled={!editable}
           >
-            {values.map((e, index) => {
+            {values.map((e) => {
               debugger;
               let value = e.code || e.value;
               let label = e.label || e.code || e.value;

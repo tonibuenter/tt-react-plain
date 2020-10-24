@@ -140,3 +140,11 @@ export function renderWidget({ def, value, action, cx }) {
 export function randomName() {
   return 'name' + Math.floor(Math.random() * 100000);
 }
+
+export function forwardValue(action, cx) {
+  if (action.forwardValue === 'data-row') {
+    return toFirst(cx.data);
+  } else {
+    return cx.value;
+  }
+}
