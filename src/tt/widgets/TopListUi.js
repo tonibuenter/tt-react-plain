@@ -203,7 +203,7 @@ export default function TopListUi(props) {
    * @param value
    * @returns {*}
    */
-  function cellUiType(attDef, value) {
+  function cellUiType(attDef, value, index) {
     attDef = { ...attDef, noLabel: true };
     return renderWidget({
       def: attDef,
